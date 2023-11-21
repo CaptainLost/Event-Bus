@@ -66,7 +66,7 @@ public class PlayerHealth : MonoBehaviour, IDamagable
 }
 ```
 ## Additional features
-Create event receiver from action.
+Create event receiver from action (don't let it be null).
 ```cs
 using CptLost.EventBus;
 using System;
