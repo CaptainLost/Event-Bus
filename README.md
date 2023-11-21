@@ -83,3 +83,6 @@ public class PlayerCharacter : MonoBehaviour
     }
 }
 ```
+## Inspiration
+The system was inspired by:
+- [BasicEventBus](https://github.com/pointcache/BasicEventBus)
