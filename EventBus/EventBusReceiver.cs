@@ -17,6 +17,16 @@ namespace CptLost.EventBus
             OnEventNoArgs = onEventNoArgs;
         }
 
+        public static implicit operator EventBusReceiver<T>(Action onEventNoArgs)
+        {
+            return new EventBusReceiver<T>(onEventNoArgs);
+        }
+
+        public static implicit operator EventBusReceiver<T>(Action<T> onEvent)
+        {
+            return new EventBusReceiver<T>(onEvent);
+        }
+
         public void Add(Action<T> onEvent)
         {
             OnEvent += onEvent;
