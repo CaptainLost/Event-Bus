@@ -65,3 +65,21 @@ public class PlayerHealth : MonoBehaviour, IDamagable
     }
 }
 ```
+## Additional features
+Create event receiver from action.
+```cs
+using CptLost.EventBus;
+using System;
+using UnityEngine;
+
+public class PlayerCharacter : MonoBehaviour
+{
+    private EventBusReceiver<PlayerDamagedEvent> _damagedReceiver;
+    private Action _onDamageAction;
+
+    private void Awake()
+    {
+        _damagedReceiver = _onDamageAction;
+    }
+}
+```
