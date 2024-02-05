@@ -20,7 +20,7 @@ public struct PlayerDamagedEvent : IBusEvent
 }
 ```
 
-Create an event receiver and bind a method to it. You can use two types of method, with and without arguments.
+Create an event receiver, register it and bind a method to it. You can use two types of method, with and without arguments.
 ```cs
 using CptLost.EventBus;
 using UnityEngine;
@@ -33,6 +33,8 @@ public class PlayerCharacter : MonoBehaviour
     {
         _damagedReceiver = new EventBusReceiver<PlayerDamagedEvent>(OnPlayerDamaged);
         _damagedReceiver.Add(OnPlayerDamagedNoArgs);
+
+        EventBus<PlayerDamagedEvent>.Register(_damagedReceiver);
     }
 
     private void OnPlayerDamaged(PlayerDamagedEvent damagedEvent)
